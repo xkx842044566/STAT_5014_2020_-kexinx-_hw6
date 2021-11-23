@@ -1,6 +1,6 @@
 ---
 title: "Stock plotter"
-author: "Student fun"
+author: "Kexin Xie"
 output:
   pdf_document: default
   html_document:
@@ -30,7 +30,7 @@ This report contains market data for `r params$symbols`.  To make for something 
 # Get data
 stock_data_tbl <- tq_get(
         x    = params$symbols,
-        from = today()-7, 
+        from = today()-9, 
         to   = today()
     ) %>%
     select(symbol, date, adjusted)
@@ -41,10 +41,13 @@ kable(stock_data_tbl,caption="Last 7 days of market close")
 ```{r}
 # Create plot with gain/loss
 ## you to do
+plot(x=stock_data_tbl$date,y=stock_data_tbl$adjusted,
+     xlab = "Date", ylab = "Adjusted price")
 ```
 
 ```{r}
 # save data 
 # do you want to have a single running RDS file, or a file for every time this runs
 # up to you to decide
+saveRDS(stock_data_tbl, "../data/StockPrice.RDS")
 ```
