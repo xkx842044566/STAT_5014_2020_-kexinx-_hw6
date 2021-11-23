@@ -30,7 +30,7 @@ This report contains market data for `r params$symbols`.  To make for something 
 # Get data
 stock_data_tbl <- tq_get(
         x    = params$symbols,
-        from = today()-9, 
+        from = today()-11, 
         to   = today()
     ) %>%
     select(symbol, date, adjusted)
