@@ -6,7 +6,7 @@ output:
   html_document:
     df_print: paged
 params:
-  symbols: AAPL
+  symbols: !r c(AAPL, FB, AMZN, GOOG)
   show_code: yes
 ---
 
@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 library(tidyquant)
 library(dplyr)
 library(knitr)
+library(ggplot2)
 ```
 
 This report contains market data for `r params$symbols`.  To make for something to plot, I suggest you pull 7 days worth of data.
@@ -41,8 +42,11 @@ kable(stock_data_tbl,caption="Last 7 days of market close")
 ```{r}
 # Create plot with gain/loss
 ## you to do
-plot(x=stock_data_tbl$date,y=stock_data_tbl$adjusted,
-     xlab = "Date", ylab = "Adjusted price")
+#plot(x=stock_data_tbl$date,y=stock_data_tbl$adjusted,
+#     xlab = "Date", ylab = "Adjusted price")
+ggplot(data=stock_data_tbl,aes(x=date,y=adjusted,color=symbols))+
+  geom_line()+xlab('Date')+ylab('Adjusted price')+theme_bw()+scale_colour_manual(values=c("red","green","blue","pink"))
+  
 ```
 
 ```{r}
