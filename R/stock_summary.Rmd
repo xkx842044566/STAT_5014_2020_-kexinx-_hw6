@@ -6,7 +6,7 @@ output:
   html_document:
     df_print: paged
 params:
-  symbols: !r c('AAPL','FB','GOOG','AMZN')
+  symbols: ["AAPL","FB","GOOG","AMZN","INTC"]
   show_code: yes
 ---
 
