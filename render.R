@@ -7,7 +7,7 @@ rmarkdown::render(
     output_file   = output_file,
     output_dir    = "reports/",
     params        = list(
-        symbols        = 'AAPL',
+        symbols        = c('AAPL','FB','GOOG','AMZN'),
         show_code      = FALSE
     )
 )
