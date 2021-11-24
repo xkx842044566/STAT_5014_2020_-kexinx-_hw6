@@ -6,7 +6,7 @@ output:
   html_document:
     df_print: paged
 params:
-  symbols: ["AAPL","FB","GOOG","AMZN","INTC"]
+  symbols: ["AAPL","FB","JPM","MRNA","WMT"]
   show_code: yes
 ---
 
